@@ -4,25 +4,21 @@
 
  Class Armazenar{
 
-    private $cadastro;
 
-    public function __construct(){
-
-        ini_set('memory_limit', '-1');
-        $this->cadastro = new Armazenar();
-        $this->gravarDados();
-    }
-
-    public function gravarDados(){
+    public function gravarDados($titulo, $descricao, $data){
 
        $agenda = new \App\Model\Agenda();
-       $agenda->setTitulo($_GET['titulo']);
-       $aluno->setDescricao($_GET['descricao']);
-       $aluno->setData($_GET['data']);
-       $aluno->setStatus(1);
+       $agenda->setTitulo($titulo);
+       $agenda->setDescricao($descricao);
+       $agenda->setData($data);
+       $agenda->setStatus(1);
+
+       $agendaDao = new \App\Model\AgendaDao();
+       $agendaDao->criar($agenda);
 
     }
 
  }
 
- new Armazenar();
+ $cadastro = new Armazenar();
+ $cadastro->gravarDados($_GET['titulo'], $_GET['descricao'], $_GET['data']);

@@ -6,13 +6,13 @@ namespace App\Model;
 
     public function criar(Agenda $a){
 
-        $query = 'INSERT INTO agenda (titulo, descricao, data, status) VALUES (?, ?, ?, ?)';
+        $query = "INSERT INTO compromissos (titulo, descricao, data, status) VALUES (?, ?, ?, ?)";
 
         $stmt = Conexao::getConn()->prepare($query);
-        $stmt->bindValues(1, $a->getTitulo());
-        $stmt->bindValues(2, $a->getDescricao());
-        $stmt->bindValues(3, $a->getData());
-        $stmt->bindValues(4, $a->getStatus());
+        $stmt->bindValue(1, $a->getTitulo());
+        $stmt->bindValue(2, $a->getDescricao());
+        $stmt->bindValue(3, $a->getData());
+        $stmt->bindValue(4, $a->getStatus());
 
         if($stmt->execute()):
 
@@ -21,7 +21,7 @@ namespace App\Model;
         else:
 
             echo "Erro ao salvar";
-            
+                
         endif;
     }
  }

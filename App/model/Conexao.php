@@ -6,11 +6,11 @@
 
     private static $instance;
 
-    public function getConn(){
+    public static function getConn(){
 
         if(!isset(self::$instance)):
 
-            self::$instance = new PDO('mysql:host=localhost; dbname=agenda; charset=utf8;', 'root', '12345');
+            self::$instance = new \PDO('mysql:host=localhost; dbname=agenda; charset=utf8;', "root", "12345");
 
         endif;
 
