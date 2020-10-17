@@ -24,4 +24,22 @@ namespace App\Model;
                 
         endif;
     }
+
+    public function listar(){
+
+        $query = 'SELECT * FROM compromissos';
+        $stmt = Conexao::getConn()->prepare($query);
+        $stmt->execute();
+
+        if($stmt->rowCount() > 0):
+
+            $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+            return $resultado;
+
+        else:
+            return [];
+
+        endif;
+    }
  }

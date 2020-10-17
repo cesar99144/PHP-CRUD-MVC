@@ -11,7 +11,8 @@
                 <textarea name="descricao" id="" placeholder="Descrição" required></textarea><br><br>
                 <input type="date" name="data" required><br><br>
                 <input type="submit" value="Cadastrar">
-            </form>
+            </form><br><br>
+            
         </div>
     </body>
 </html>
