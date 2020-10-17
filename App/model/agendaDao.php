@@ -6,7 +6,7 @@ namespace App\Model;
 
     public function criar(Agenda $a){
 
-        $query = "INSERT INTO compromissos (titulo, descricao, data, status) VALUES (?, ?, ?, ?)";
+        $query = 'INSERT INTO compromissos (titulo, descricao, data, status) VALUES (?, ?, ?, ?)';
 
         $stmt = Conexao::getConn()->prepare($query);
         $stmt->bindValue(1, $a->getTitulo());
@@ -16,7 +16,7 @@ namespace App\Model;
 
         if($stmt->execute()):
 
-            echo "Deu certo";
+            echo "Salvo com sucesso";
 
         else:
 
@@ -41,5 +41,24 @@ namespace App\Model;
             return [];
 
         endif;
+    }
+
+    public function atualizar(Agenda $a){
+
+        $query = 'UPDATE compromissos SET titulo = ?, descricao = ?, data = ? WHERE id = ?';
+        $stmt = Conexao::getConn()->prepare($query);
+        $stmt->bindValue(1, $a->getTitulo());
+        $stmt->bindValue(2, $a->getDescricao());
+        $stmt->bindValue(3, $a->getData());
+        $stmt->bindValue(4, $a->getId());
+
+    }
+
+    public function excluir(Agenda $a){
+
+        $query = 'DELETE FROM compromissos WHERE id = ?';
+        $stmt = Conexao::getConn()->prepare($query);
+        $stmt->bindValue(1, $a->getId());
+        $stmt->execute();
     }
  }

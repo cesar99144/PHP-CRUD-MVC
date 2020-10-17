@@ -4,7 +4,17 @@ namespace App\Model;
 
  class Agenda{
 
-    private $titulo, $descricao, $data, $status;
+    private $id, $titulo, $descricao, $data, $status;
+
+    public function getId(){
+
+        return $this->id;
+    }
+
+    public function setId($i){
+
+        $this->id = $i;
+    }
 
     public function getTitulo(){
 
