@@ -1,7 +1,7 @@
 # PHP-CRUD-MVC
 Projeto de um crud simples em php com pdo e mvc
 
-<p>Tema do crud:</p>
+<p>Tema do sistema:</p>
 <blockquote>
     Sistema com crud e mvc simples usando php 7 e MySql, para uma agenda de compromissos e afazeres.
 </blockquote><br>
